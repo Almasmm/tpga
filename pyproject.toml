@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tpga"
+version = "0.1.0"
+description = "Transportation problem solved by a permutation-encoded genetic algorithm with a greedy decoder and an exact LP baseline."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Almas Murat" }]
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "scipy>=1.11", "matplotlib>=3.7"]
+keywords = ["transportation problem", "genetic algorithm", "operations research", "optimization"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Mathematics",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "pytest-cov>=5", "ruff>=0.5", "mypy>=1.8", "build>=1.0"]
+
+[project.scripts]
+tpga = "tpga.cli:main"
+
+[project.urls]
+Repository = "https://github.com/Almasmm/tpga"
+Issues = "https://github.com/Almasmm/tpga/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+tpga = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.coverage.run]
+source = ["tpga"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "NPY"]
+
+[tool.mypy]
+python_version = "3.10"
+files = ["src/tpga"]
+ignore_missing_imports = true
+warn_unused_ignores = true
