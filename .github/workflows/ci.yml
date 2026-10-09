@@ -66,7 +66,7 @@ jobs:
       - name: Smoke-test the built wheel
         run: |
           python -m venv /tmp/w && /tmp/w/bin/pip install dist/*.whl
-          /tmp/w/bin/tpga solve examples/small_3x3.json --seed 0
+          /tmp/w/bin/python -c "from tpga import TransportProblem, solve_lp; print(solve_lp(TransportProblem([20,30,20],[25,25,20],[[8,6,3],[5,4,9],[2,7,6]]))[1])"
       - uses: actions/upload-artifact@v4
         with:
           name: dist
