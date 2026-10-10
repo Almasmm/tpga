@@ -52,9 +52,24 @@ jobs:
           name: coverage-xml
           path: coverage.xml
 
+  platform:
+    name: Platform API tests
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e . fastapi httpx pytest
+      - run: pytest -q platform/backend/tests
+        env:
+          PYTHONPATH: platform/backend
+
   build:
     name: Build package
-    needs: test
+    needs: [test, platform]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
