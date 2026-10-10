@@ -3,6 +3,17 @@
 All notable changes are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/)
 and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.2.0] — 2026-10-10
+
+### Added
+- Web platform API (`platform/backend`, FastAPI): `GET /health`, `POST /solve` with LP and GA; GA responses include
+  the LP optimum and the gap. Dockerfile and docker-compose.
+- CI job **Platform API tests**; the package build now depends on it.
+
+### Changed
+- The repository is now the single code repository of the project and is named `tp-ga`.
+- GitHub Actions updated by Dependabot: `actions/checkout` v7, `actions/setup-python` v7, `actions/upload-artifact` v6.
+
 ## [0.1.0] — 2026-10-09
 
 ### Added
