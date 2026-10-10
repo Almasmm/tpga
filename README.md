@@ -70,10 +70,16 @@ This illustrates the tool; it is not a benchmark, and a single run says nothing 
 
 ```text
 src/tpga/        model.py  decoder.py  ga.py  exact.py  plot.py  cli.py
+platform/        web platform: FastAPI backend (app/, tests/), Dockerfile, docker-compose
 tests/           unit, property-style and CLI tests (pytest)
 examples/        JSON instances
 .github/         CI and release workflows, Dependabot, issue and PR templates
 ```
+
+## Web platform
+
+The [`platform`](platform) folder holds the FastAPI backend: `POST /solve` runs LP or GA on an instance and a GA
+response always includes the LP optimum and the gap. See [platform/README.md](platform/README.md).
 
 ## Technology choices
 
@@ -86,6 +92,7 @@ examples/        JSON instances
 | Tests | **pytest** (+ pytest-cov) | Concise fixtures and parametrisation; coverage gate of 90 % in CI. |
 | Style / lint | **ruff** | One fast tool for linting, import sorting and formatting. |
 | Types | **mypy** | Catches interface errors in numerical code before runtime. |
+| Web API | **FastAPI** | Typed request/response models (pydantic), automatic OpenAPI docs, built-in test client. |
 | Packaging | **pyproject.toml + setuptools** | PEP 621 standard metadata; `pip install -e .` and a `tpga` console script. |
 | VCS / hosting | **Git + GitHub** | Issues, pull requests, branch protection and Actions in one place. |
 | CI/CD | **GitHub Actions** | Native to GitHub; free for public repositories; matrix builds on Linux and Windows. |
@@ -93,7 +100,8 @@ examples/        JSON instances
 ## Quality checks and CI/CD
 
 - [`ci.yml`](.github/workflows/ci.yml) — on every push and pull request: ruff lint and format check, mypy, then the
-  test suite on **Ubuntu and Windows × Python 3.10, 3.11, 3.12** with a 90 % coverage gate, then a package build
+  test suite on **Ubuntu and Windows × Python 3.10, 3.11, 3.12** with a 90 % coverage gate and the platform API
+  tests, then a package build
   whose wheel is installed in a clean environment and smoke-tested with the CLI.
 - [`release.yml`](.github/workflows/release.yml) — on a tag `vX.Y.Z`: runs the tests, checks that the tag equals the
   package version, builds the sdist and wheel and publishes them as a **GitHub Release** (continuous delivery).
