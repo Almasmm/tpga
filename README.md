@@ -1,12 +1,13 @@
-# tpga — transportation problem solved by a genetic algorithm
+# tp-ga — modelling and optimisation of the transportation problem with genetic algorithms
 
-[![CI](https://github.com/Almasmm/tpga/actions/workflows/ci.yml/badge.svg)](https://github.com/Almasmm/tpga/actions/workflows/ci.yml)
-[![Release](https://github.com/Almasmm/tpga/actions/workflows/release.yml/badge.svg)](https://github.com/Almasmm/tpga/actions/workflows/release.yml)
+[![CI](https://github.com/Almasmm/tp-ga/actions/workflows/ci.yml/badge.svg)](https://github.com/Almasmm/tp-ga/actions/workflows/ci.yml)
+[![Release](https://github.com/Almasmm/tp-ga/actions/workflows/release.yml/badge.svg)](https://github.com/Almasmm/tp-ga/actions/workflows/release.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 
-A small scientific software module developed within the master's research *Modelling and optimisation of the
-transportation problem using genetic algorithms* (Astana IT University). It solves the classical transportation
+The code base of the master's research project *Modelling and optimisation of the transportation problem using
+genetic algorithms* (Astana IT University). It contains the `tpga` Python library and, as it grows, the web
+platform built on it. The library solves the classical transportation
 problem with a **permutation-encoded genetic algorithm** whose individuals are turned into shipment plans by a
 **greedy decoder**, and reports every GA result against the **exact linear-programming optimum**.
 
@@ -23,8 +24,8 @@ Because exact methods solve the classical model directly, `tpga` always computes
 ## Installation
 
 ```bash
-git clone https://github.com/Almasmm/tpga.git
-cd tpga
+git clone https://github.com/Almasmm/tp-ga.git
+cd tp-ga
 pip install -e .            # library and CLI
 pip install -e .[dev]       # plus pytest, ruff, mypy, build
 ```

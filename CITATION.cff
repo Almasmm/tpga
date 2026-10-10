@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "tpga: transportation problem solved by a genetic algorithm with an exact LP baseline"
+title: "tp-ga: modelling and optimisation of the transportation problem with genetic algorithms"
 authors:
   - family-names: Murat
     given-names: Almas
@@ -9,4 +9,4 @@ authors:
 version: 0.1.0
 date-released: 2026-10-09
 license: MIT
-repository-code: "https://github.com/Almasmm/tpga"
+repository-code: "https://github.com/Almasmm/tp-ga"
