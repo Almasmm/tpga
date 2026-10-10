@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tpga"
-version = "0.1.0"
+version = "0.2.0"
 description = "Transportation problem solved by a permutation-encoded genetic algorithm with a greedy decoder and an exact LP baseline."
 readme = "README.md"
 license = { text = "MIT" }

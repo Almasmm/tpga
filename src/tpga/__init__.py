@@ -6,4 +6,4 @@ from tpga.ga import GAConfig, GAResult, run_ga
 from tpga.model import TransportProblem
 
 __all__ = ["GAConfig", "GAResult", "TransportProblem", "decode_permutation", "run_ga", "solve_lp"]
-__version__ = "0.1.0"
+__version__ = "0.2.0"
